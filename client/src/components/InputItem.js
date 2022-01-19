@@ -20,23 +20,33 @@ const InputItem = () => {
   };
   const addItem = async (event) => {
     //event.preventDefault();
-    const body = {
-      name,
-      description,
-      price: parseInt(price),
-      amount,
-    };
-    const response = await fetch("http://localhost:5000/items/", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(body),
-    });
-    setName("");
-    setDescription("");
-    setPrice("");
-    setAmount("");
+    if (
+      !isNaN(price) &&
+      !isNaN(amount) &&
+      parseInt(price) >= 0 &&
+      parseInt(amount) >= 0
+    ) {
+      const body = {
+        name,
+        description,
+        price,
+        amount,
+      };
+      const response = await fetch("http://localhost:5000/items/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(body),
+      });
+      setName("");
+      setDescription("");
+      setPrice("");
+      setAmount("");
+    } else {
+      event.preventDefault();
+      alert("Please enter a valid number for price and amount");
+    }
   };
 
   return (
