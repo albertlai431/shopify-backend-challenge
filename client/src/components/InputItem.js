@@ -6,6 +6,7 @@ const InputItem = () => {
   const [price, setPrice] = useState("");
   const [amount, setAmount] = useState("");
 
+  //input change handlers
   const handleNameChange = (event) => {
     setName(event.target.value);
   };
@@ -18,6 +19,8 @@ const InputItem = () => {
   const handleAmountChange = (event) => {
     setAmount(event.target.value);
   };
+
+  //post request to add item
   const addItem = async (event) => {
     //event.preventDefault();
     if (

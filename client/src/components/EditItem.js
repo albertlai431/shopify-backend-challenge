@@ -7,6 +7,7 @@ const EditItem = ({ item }) => {
   const [price, setPrice] = useState(item.price);
   const [amount, setAmount] = useState(item.amount);
 
+  //input change handlers
   const handleNameChange = (event) => {
     setName(event.target.value);
   };
@@ -24,6 +25,7 @@ const EditItem = ({ item }) => {
     setShow(!show);
   };
 
+  //put request to update item
   const updateItem = async (event) => {
     if (
       !isNaN(price) &&

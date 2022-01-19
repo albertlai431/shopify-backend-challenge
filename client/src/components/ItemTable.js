@@ -6,6 +6,7 @@ const converter = require("json-2-csv");
 const ItemTable = () => {
   const [items, setItems] = useState([]);
 
+  //get request to get all items
   const getItems = async () => {
     try {
       const response = await fetch("http://localhost:5000/items/");
@@ -16,6 +17,7 @@ const ItemTable = () => {
     }
   };
 
+  //delete request to delete item
   const deleteItem = async (id) => {
     try {
       const response = await fetch(`http://localhost:5000/items/${id}`, {
@@ -27,6 +29,7 @@ const ItemTable = () => {
     }
   };
 
+  //convert json to csv and download
   const downloadCSV = async () => {
     converter.json2csv(items, (err, csv) => {
       if (err) {
@@ -48,9 +51,11 @@ const ItemTable = () => {
     });
   };
 
+  //get all items on mount
   useEffect(() => {
     getItems();
   }, []);
+
   return (
     <div>
       <h3>Inventory Table</h3>
