@@ -1,6 +1,6 @@
 # shopify-backend-challenge
 
-Backend for managing inventory. Uses the PERN stack (PostgreSQL, Express, React and Node). CRUD functionality for managing inventory items and feature that allows exporting inventory data into JSON.
+Backend for managing inventory. Uses the PERN stack (PostgreSQL, Express, React and Node). CRUD functionality for managing inventory items and feature that allows exporting inventory data into CSV.
 
 Demo:
 
