@@ -15,7 +15,7 @@ https://user-images.githubusercontent.com/44041989/150167738-b15b4d7b-1146-4f0b-
 # If installed via the website
 pg_ctl -D /usr/local/var/postgres start
 
-# If installed via homebrew on M1 Mac, run this first
+# If installed via homebrew on M1 Mac, run this before the next command
 /opt/homebrew/bin/createuser -s postgres
 
 # If installed via homebrew
@@ -42,4 +42,13 @@ PGPASSWORD=INSERT_PASSWORD_HERE psql -U postgres < server/database.sql
 cd client
 npm i
 npm run start
+```
+
+5. When finished, Ctrl-C on both Terminals/Command Prompts to stop the servers. To stop the PostgreSQL server, run the following command
+```bash
+# If installed via the website
+pg_ctl -D /usr/local/var/postgres stop
+
+# If installed via homebrew
+brew services stop postgresql
 ```
